@@ -1,0 +1,24 @@
+.animate-repeat-container {
+    background:white;
+    border:1px solid black;
+    list-style:none;
+    margin:0;
+    padding:0 10px;
+  }
+
+  .animate-repeat-container.ng-enter{
+      transition: 1s linear all;
+      opacity: 0;
+  }
+
+  .animate-repeat-container.ng-enter-active{    
+    opacity: 1;
+}
+
+.sample-show-hide {
+    transition: all linear 0.5s;
+  }
+  
+  .sample-show-hide.ng-hide {
+    opacity: 0;
+  }

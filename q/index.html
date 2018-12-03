@@ -1,0 +1,25 @@
+<html ng-app="app">
+
+<head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular-animate.min.js"></script>
+        <script src="script.js"></script>
+        <link res="stylesheet" href="style.css" type="text/css" />
+
+</head>
+
+<body ng-controller="Controller as vm">
+        <h2>{{vm.msg}}</h2>
+        <input type="text" placeholder="Enter your name here to " ng-model="name" />
+        <button ng-click="vm.promiseExample(name)">Be promised to be greeted eventually</button>
+
+        <br>
+        <div class="greeting">
+                <span ng-if="!vm.greeting.isRequesting()">{{vm.greeting.successMsg || vm.greeting.errorMsg}} </span>     
+                <span  ng-if="vm.greeting.isRequesting()">Requesting...</span>           
+        </div>  
+        
+
+</body>
+
+</html>

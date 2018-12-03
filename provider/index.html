@@ -1,0 +1,19 @@
+<html ng-app="app">
+        <head>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular-animate.min.js"></script>
+                <script src="script.js"></script>
+              
+            </head>
+    <body ng-controller="Controller as vm">
+           <h2>{{vm.msg}}</h2>
+
+           <p>We have defined a clientId service, whiche is a simple string : {{vm.clientId}}</p>
+           
+           <p>Api token : {{vm.token}}</p>
+
+
+           <p>Number of launch: {{vm.numberOfLaunch}}</p>
+           <button ng-click="vm.launchUnicorn()">Launch</button>
+    </body>
+</html>

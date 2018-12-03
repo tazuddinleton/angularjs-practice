@@ -1,0 +1,22 @@
+<html ng-app="animationExample">
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular-animate.min.js"></script>
+        <script src="script.js"></script>
+        <link href="style.css" rel="stylesheet" type="text/css">
+    </head>
+    <body ng-controller="AnimeCtrl">
+        <input type="checkbox" ng-model="show"/> Is visible
+        <h2 id="title" class="sample-show-hide" ng-show="show">Animation</h2>
+         <ul class="animate-repeat-container">
+             <li ng-repeat="item in itemList track by item"
+             class="animate-repeat"
+             >{{item}}
+                 <button ng-click="remove(item)">x</button>
+             </li>
+
+             <input type="text" ng-model="name"/>
+             <button ng-click="add(name)">Add</button>
+         </ul>
+    </body>
+</html>

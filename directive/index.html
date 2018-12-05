@@ -7,7 +7,7 @@
 
 </head>
 
-<body ng-controller="Controller as vm" ng-init="">
+<body ng-controller="Controller as vm" >
         <h2>{{vm.msg}}</h2>
 
         <span draggable>Drag me</span>
@@ -25,13 +25,28 @@
                         <input type="text" ng-model="vm.test" />
                 </dd>
                 <dt>
-                        Directive test
+                        Directive test : watch
                 </dt>
                 <dd>
                         <input type="text" placeholder="Enter time formt here ex: hh:mm:ss" ng-model="vm.timeFormat" style="width: 50%"/>
                         <br>
                         <br>
                         <time-watch time-format="vm.timeFormat || 'hh:mm:ss'" draggable=""></time-watch>
+                </dd>
+
+                <dt>
+                        Directive : dialog box
+                </dt>
+                <dd>    
+                        <button ng-click="vm.showDialog()">Show Dialog</button>
+                        <my-dialogbox 
+                                title="Title of my dialog"
+                                on-close="vm.hideDialog()"
+                                ng-hide="vm.hideDialogbox"
+                                >
+                                {{vm.msg}}
+                                asdfas;lkdfjas;dkf
+                        </my-dialogbox>
                 </dd>
         </dl>
 

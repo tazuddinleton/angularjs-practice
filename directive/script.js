@@ -1,6 +1,6 @@
 const appModule = angular.module('app', [])
-    .controller('Controller', function ($scope) {
-        var vm = $scope
+    .controller('Controller', function ($scope) { 
+        vm = this;       
         vm.msg = 'Directive example';
 
         vm.customers = [
@@ -15,9 +15,16 @@ const appModule = angular.module('app', [])
         ];
 
         vm.test = 'test';
-        vm.$watch('vm.test', function(newVal, oldVal){
+        $scope.$watch('vm.test', function(newVal, oldVal){
             console.log(newVal, oldVal);
-        });       
+        });    
+        
+        vm.showDialog= function(){
+            vm.hideDialogbox = false;
+        }
+        vm.hideDialog = function(){
+            vm.hideDialogbox = true;
+        }        
     });
 
 
@@ -106,8 +113,16 @@ appModule.directive('timeWatch', function($interval, dateFilter){
 appModule.directive('myDialogbox', function(){
     return {
         restrict: 'E',
-        scope: {},
+        scope: {
+            title: '@',  
+            closeDialog: '&onClose'     
+        },
         transclude: true,
-        templateUrl: 'dialogbox.tmpl.html'
+        templateUrl: 'dialogbox.tmpl.html',
+        link: function(scope){
+            scope.msg = 'Hello from dialog';
+            console.log(scope);            
+        }
     }
-})
+});
+

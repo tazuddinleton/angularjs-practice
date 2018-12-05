@@ -1,7 +1,23 @@
 const appModule = angular.module('app', [])
-    .controller('Controller', function () {
-        var vm = this;
+    .controller('Controller', function ($scope) {
+        var vm = $scope
         vm.msg = 'Directive example';
+
+        vm.customers = [
+            {
+                name: 'Customer 1',
+                address: 'Address'
+            },
+            {
+                name: 'Customer 2',
+                address: 'Address 2'
+            }
+        ];
+
+        vm.test = 'test';
+        vm.$watch('vm.test', function(newVal, oldVal){
+            console.log(newVal, oldVal);
+        });       
     });
 
 
@@ -41,3 +57,57 @@ appModule.directive('draggable', function ($document) {
         }
     };
 });
+
+appModule.directive('myCustomer', function(){
+    return {
+        restrict: 'E',
+        templateUrl: 'customer.tmpl.html',
+        scope: {
+            customer: '='
+        }
+    };
+});
+
+appModule.directive('timeWatch', function($interval, dateFilter){
+    return {
+        link: link
+    }
+
+    function link(scope, element, attrs){
+        var format, timeoutId;
+
+        scope.$watch(attrs.timeFormat, function(value){
+            format = value;
+            console.log(value);
+            updateTime();
+
+        });
+
+        function updateTime(){
+            element.text(dateFilter(new Date(), format));
+            element.css({
+                background: 'lightgray',
+                border: '1px solid #999',
+                padding: '3px',
+                color: 'teal'
+            })
+        }
+
+        timeoutId = $interval(function(){
+            updateTime();
+        }, 1000);
+
+        element.on('$destory', function(){
+            $interval.cancel(timeoutId);
+        });
+    }
+});
+
+appModule.directive('myDialogbox', function(){
+    return {
+        restrict: 'E',
+        scope: {},
+        transclude: true,
+        templateUrl: 'dialogbox.tmpl.html'
+    }
+})

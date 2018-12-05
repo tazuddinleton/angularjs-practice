@@ -1,6 +1,6 @@
 const appModule = angular.module('app', [])
-    .controller('Controller', function ($scope) { 
-        vm = this;       
+    .controller('Controller', function ($scope) {
+        vm = this;
         vm.msg = 'Directive example';
 
         vm.customers = [
@@ -15,16 +15,16 @@ const appModule = angular.module('app', [])
         ];
 
         vm.test = 'test';
-        $scope.$watch('vm.test', function(newVal, oldVal){
+        $scope.$watch('vm.test', function (newVal, oldVal) {
             console.log(newVal, oldVal);
-        });    
-        
-        vm.showDialog= function(){
+        });
+
+        vm.showDialog = function () {
             vm.hideDialogbox = false;
         }
-        vm.hideDialog = function(){
+        vm.hideDialog = function () {
             vm.hideDialogbox = true;
-        }        
+        }
     });
 
 
@@ -65,7 +65,7 @@ appModule.directive('draggable', function ($document) {
     };
 });
 
-appModule.directive('myCustomer', function(){
+appModule.directive('myCustomer', function () {
     return {
         restrict: 'E',
         templateUrl: 'customer.tmpl.html',
@@ -75,22 +75,22 @@ appModule.directive('myCustomer', function(){
     };
 });
 
-appModule.directive('timeWatch', function($interval, dateFilter){
+appModule.directive('timeWatch', function ($interval, dateFilter) {
     return {
         link: link
     }
 
-    function link(scope, element, attrs){
+    function link(scope, element, attrs) {
         var format, timeoutId;
 
-        scope.$watch(attrs.timeFormat, function(value){
+        scope.$watch(attrs.timeFormat, function (value) {
             format = value;
             console.log(value);
             updateTime();
 
         });
 
-        function updateTime(){
+        function updateTime() {
             element.text(dateFilter(new Date(), format));
             element.css({
                 background: 'lightgray',
@@ -100,28 +100,28 @@ appModule.directive('timeWatch', function($interval, dateFilter){
             })
         }
 
-        timeoutId = $interval(function(){
+        timeoutId = $interval(function () {
             updateTime();
         }, 1000);
 
-        element.on('$destory', function(){
+        element.on('$destory', function () {
             $interval.cancel(timeoutId);
         });
     }
 });
 
-appModule.directive('myDialogbox', function(){
+appModule.directive('myDialogbox', function () {
     return {
         restrict: 'E',
         scope: {
-            title: '@',  
-            closeDialog: '&onClose'     
+            title: '@',
+            closeDialog: '&onClose'
         },
         transclude: true,
         templateUrl: 'dialogbox.tmpl.html',
-        link: function(scope){
+        link: function (scope) {
             scope.msg = 'Hello from dialog';
-            console.log(scope);            
+            console.log(scope);
         }
     }
 });

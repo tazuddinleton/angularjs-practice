@@ -1,6 +1,8 @@
 let myApp = angular.module('app', [])
-.controller('Controller',function(clientId, apiToken, unicornLauncher){
+.controller('Controller',function(clientId, apiToken, unicornLauncher, $log){
     var vm = this;
+    vm.$log = $log;
+
     vm.msg = 'Provider & the grand design';
 
     vm.clientId = clientId;
@@ -8,9 +10,11 @@ let myApp = angular.module('app', [])
 
 
 
+
 vm.launchUnicorn = function(){    
     unicornLauncher.launch();
     vm.numberOfLaunch = unicornLauncher.numberOfLaunch;
+    vm.$log.log('unicorn has been launched.');
 }
 
 });
@@ -74,10 +78,18 @@ myApp.directive('planet', function(planetName){
     }
 });
 
+// using decorator to decorate objects
 
-myApp.config(function($provide){
-    console.log('$provide:  ', $provide);
-});
+myApp.config(['$provide', function($provide){
+    $provide.decorator('$log', ['$delegate', function $logDecorator($delegate){
+        console.log($delegate);
+        $delegate.log = function(msg){
+            console.log('MY LOGGER: '+msg);
+        }
+        return $delegate;
+    }]);
+    
+}]);
 
 
 

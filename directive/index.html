@@ -57,6 +57,31 @@
                                 <button type="submit">Submit</button>
                         </form>
                 </dd>
+                <dt>
+                        Change view value every second
+                </dt>
+                <dd>
+                        <input type="text" ng-model="vm.counter" counter="10" />
+                        <button ng-click="vm.showCounter()">Show counter</button>
+                </dd>
+
+                <dt>
+                        $parent example
+                </dt>
+                <dd>
+                        <button ng-click="helloWorld()">Hello World</button>
+                </dd>
+
+                <dt>
+                        expose directive scope to parent controller
+                </dt>
+                <dd>
+                        <form  name="myForm" my-form>
+                                <input type="text" />
+
+                                <button type="button" ng-click="formDirty()">Submit</button>
+                        </form>
+                </dd>
         </dl>
 
        

@@ -1,6 +1,6 @@
 {
     "port": 9090,
     "server": {
-        "baseDir": "./provider/"
+        "baseDir": "./custom-directives/"
     }
 }

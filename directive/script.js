@@ -25,6 +25,24 @@ const appModule = angular.module('app', [])
         vm.hideDialog = function () {
             vm.hideDialogbox = true;
         }
+
+        vm.counter = "1";
+        vm.showCounter = function(){
+            console.log(vm.counter);
+        }
+        console.log(vm);
+        vm.helloWorld = function(){
+            console.log($scope.$parent.helloWorld());
+        }
+
+        vm.checkDirty = function(){
+            console.log('VM NOW : ', vm);
+            vm.formDirty();            
+        }
+
+        vm.$onChanges = function(obj){
+            console.log('changed', obj);
+        }
     });
 
 
@@ -132,5 +150,42 @@ appModule.directive('dirtyCheck', function(){
         link: function(scope, element, attr, ctrl){
             console.log(ctrl, 'login form ctrl');
         }
+    }
+});
+
+appModule.directive('counter', function(){
+    return {
+        require: '^ngModel', 
+        restrict: 'A',        
+        
+        link: function(scope, element, attr, ngModel){
+            setInterval(function(){
+                var x = parseInt(ngModel.$viewValue);
+                x += 1;
+                ngModel.$setViewValue(x);
+                ngModel.$render();
+                console.log('eval: ',scope.$eval(attr.counter));
+            }, parseInt(attr.counter)*1000)
+        }
+    }
+});
+
+
+appModule.directive('myForm', function(){
+    return {
+        require: '^form',
+        restrict: 'A',
+        link: function(vm, attr, element, ctrl){
+            console.log(vm, attr, element, ctrl);
+            vm.formDirty = function(){
+                console.log('form dirty checking...');
+            }
+        }
+    }
+})
+
+appModule.run(function($rootScope){
+    $rootScope.helloWorld = function(){
+       console.log('Hello World');
     }
 });

@@ -1,0 +1,28 @@
+<html ng-app="app">
+        <head>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular-animate.min.js"></script>
+                <script src="script.js"></script>
+              
+            </head>
+    <body ng-controller="Controller as vm">
+           <h2>{{vm.msg}}</h2>
+
+           <div>
+                   <select ng-options="item.id as item.name for item in vm.list"
+                   ng-model="vm.model.itemId"
+                   ng-change="vm.onItemSelected()"
+                   bind-item-to="vm.model" test="vm.onItemSelected()"
+                   value="hello world"
+                   one-way="vm.model"
+                   >
+                        <option value=""></option>
+                   </select>                   
+           </div>
+           
+           
+           <input cap type="text" placeholder="Capitalize" 
+           ng-model="vm.model.someTitle"
+           />
+    </body>
+</html>

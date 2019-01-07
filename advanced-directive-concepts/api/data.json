@@ -1,0 +1,19 @@
+{
+    "data": [
+        {
+            "product": "Car",
+            "description": "Tesla Model S",
+            "cost": "$120000"
+        },
+        {
+            "product": "Phone",
+            "description": "Turing Phone X",
+            "cost": "$1200"
+        },
+        {
+            "product": "Eggs",
+            "description": "Fresh chicken eggs",
+            "cost": "$12"
+        }
+    ]
+}

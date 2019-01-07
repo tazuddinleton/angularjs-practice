@@ -1,0 +1,28 @@
+<html ng-app="app">
+        <head>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular-animate.min.js"></script>
+                <script src="script.js"></script>
+                <script src="./directives/GridScreen.js"></script>
+              <style>
+             
+              </style>
+            </head>
+    <body ng-controller="Controller as vm">
+           <h2>{{vm.msg}}</h2>
+           
+           <dl>
+                   <dt>Grid Screen</dt>
+                   <dt>
+                           <grid-screen resource="/api/data.json">
+                                   <grid-columns>
+                                        <grid-column title="Product" description="product"></grid-column>
+                                        <grid-column title="Description" description="description"></grid-column>
+                                        <grid-column title="Cost" description="cost"></grid-column>
+                                </grid-columns>
+                                <grid with-inline-editor></grid>
+                           </grid-screen>
+                   </dt>
+           </dl>
+    </body>
+</html>

@@ -1,0 +1,62 @@
+<html ng-app="app">
+
+<head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular-animate.min.js"></script>
+        <script src="script.js"></script>
+        <script src="capitalize.js"></script>
+        <style>
+                .code-example{
+                background: #090909;
+                color: #f0f090;
+                font-family: 'Courier New', Courier, monospace;
+                padding: 15px;
+                
+        }
+        .directive{
+                margin-bottom: 2%;
+        }
+        </style>
+</head>
+
+<body ng-controller="Controller as vm">
+        <h2>{{vm.msg}}</h2>
+
+        <dl class="directive">
+                <dt>Name: capitalize</dt>
+                <dt>Usage: Capitalize input</dt>
+                <dt>Demo: </dt>
+                <dd>
+                        <input type="text" data-ng-model="vm.capital" placeholder="Write here" capitalize />
+                        <button data-ng-click="vm.capClick()">Add 'D'</button>
+                </dd>
+                <dt>Code: </dt>
+                <dd class="code-example">
+                        <code>
+                                <input type="text" data-ng-model="vm.capital" placeholder="Write here" capitalize /> 
+                        </code>
+                </dd>
+        </dl>
+        <dl class="directive">
+                <dt>Name: code</dt>
+                <dt>Usage: Capitalize input</dt>
+                <dt>Demo: </dt>
+                <dd>
+                        <input type="text" data-ng-model="vm.capital" placeholder="Write here" capitalize />
+                        <button data-ng-click="vm.capClick()">Add 'D'</button>
+                </dd>
+                <dt>Code: </dt>
+                <dd class="code-example">
+                        <code>
+                                <input type="text" data-ng-model="vm.capital" placeholder="Write here" capitalize />
+                                <button data-ng-click="vm.capClick()">Add 'D'</button>
+                                <button data-ng-click="vm.capClick()">Add 'D'</button>
+                                <input type="text" data-ng-model="vm.capital" placeholder="Write here" capitalize />
+                                <button data-ng-click="vm.capClick()">Add 'D'</button>
+                                <button data-ng-click="vm.capClick()">Add 'D'</button>
+                        </code>
+                </dd>
+        </dl>
+</body>
+
+</html>

@@ -16,6 +16,8 @@
   "license": "ISC",
   "devDependencies": {
     "angular": "^1.7.5",
+    "angular-animate": "^1.7.5",
+    "angular-ui-router": "^1.0.20",
     "lite-server": "^2.4.0"
   }
 }

@@ -31,8 +31,7 @@ app.directive('gridColumns', function(){
             var gridScreen = controllers[0];
             var gridColumns = controllers[1];
             gridScreen.setColumns(gridColumns.getColumns());
-            console.log('linked gridColumns');
-
+            
         }
 
     }
@@ -66,7 +65,7 @@ app.directive('withInlineEditor', function(){
     return {
         restrict: 'A',
         link: function(scope, element, attrs){
-            console.log('linked withInlineEditor');
+            
         }
     }
 });

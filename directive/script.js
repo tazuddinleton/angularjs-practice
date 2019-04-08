@@ -26,6 +26,11 @@ const appModule = angular.module('app', [])
             vm.hideDialogbox = true;
         }
 
+        vm.clickEvent = function(event){
+            console.log('click event: ', event);
+            console.log('target.id : ', event.target.id);
+        }
+
         vm.counter = "1";
         vm.showCounter = function(){
             console.log(vm.counter);
@@ -43,6 +48,8 @@ const appModule = angular.module('app', [])
         vm.$onChanges = function(obj){
             console.log('changed', obj);
         }
+
+
     });
 
 
@@ -189,3 +196,4 @@ appModule.run(function($rootScope){
        console.log('Hello World');
     }
 });
+

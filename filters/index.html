@@ -1,0 +1,19 @@
+<html ng-app="app">
+        <head>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular-animate.min.js"></script>
+                <script src="script.js"></script>
+              
+            </head>
+    <body ng-controller="Controller as vm">
+           <h2>{{vm.msg}}</h2>
+           
+           <ul style="list-style:none;">
+                   <li ng-repeat="l in vm.languages">
+                           <span>Language : {{l.name}} </span>
+                           <br>
+                           <span>Skill : {{l.completeness | skill}} </span>
+                   </li>
+           </ul>
+    </body>
+</html>

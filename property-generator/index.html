@@ -1,0 +1,22 @@
+<html ng-app="app">
+
+<head>
+        <script src="angular.js"></script>
+        <script src="script.js"></script>
+
+</head>
+
+<body ng-controller="Controller as vm">
+        <h2>{{vm.msg}}</h2>
+
+        <label>Paste in the fields:</label>
+        <textarea cols="80" rows="10" ng-model="vm.raw_data" ng-change="vm.generateProperty()">
+        </textarea>
+        <br>
+        <label>Output:</label>
+        <div style="height: 350px;width:650px;overflow:scroll;font-size:11px;color:yellow;background:black;">
+                <pre contenteditable="true" id="output">{{vm.output}}</pre>
+        </div>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+body{
+    background: #FFFFFF;
+    padding: 10px;
+}
+
+.fill{
+    background: #4285bf;
+    width: 200px;    
+    height: 200px;
+    border: solid #FFFFFF 1px;   
+    position: relative;
+    top: 5;
+    left: 5;
+}
+.empty{
+    display: inline-block;
+    width: 210px;
+    height: 210px;
+    border: solid #999 1px; 
+    background: white;    
+     
+}
+
+.fill input{
+    width: 100%;
+    padding: 3px;
+    margin: 0;
+    margin-top: 2px;
+
+}
+.fill h1, h2, h3, h4, h5, h6{
+    widows: 100%;
+    padding: 3px;
+    margin: 0;
+    margin-top: 2px;
+
+}
+
+.hold{
+    border: solid #ccc 4px;
+}
+
+.hovered{
+    background: #f4f4f4;
+    border-style: dashed;
+}
+
+.invisible{
+    display: none;
+}
+
+th, td {
+    max-width: 160px !important;
+}

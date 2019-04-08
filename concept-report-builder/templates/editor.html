@@ -1,0 +1,28 @@
+<div class="row">
+
+    <div id="container">
+        <div class="empty" ng-repeat="x in report.cols | orderBy: 'sl'">
+            <report-column column="x">
+
+            </report-column>
+
+            <div class="fill">
+                {{x | json}}
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <td>
+                    Options
+                </td>
+                <td >
+                    {{x | json}}
+                </td>
+            </tr>
+        </tbody>
+    </table> -->
+</div>
